@@ -1,8 +1,15 @@
 # AR-ASL
+
+Language should not be a barrier to communication or education. People with difficulties in talking and listening face a lot of problem to communicate with others. They might have a hard time in reading textbooks or understanding foreign language. AR-ASL is a realtime application designed for these people to make their lives easier, with AR-ASL they can read books in realtime. AR-ASL also allows them understand foreign books and booklets without the intervention of others.  
+
 ![](/examples/3.PNG)
 
 ## Functionalities
-1. Read Image file/ webcam, and show the corresponding ASL stream
+1. Extract text from images in realtime
+2. Translate to English automatically if the language is different
+3. Tokenize and discard invalid words in Sign Language
+4. Fetch the corresponding Sign Language video from [HandSpeak](https://www.handspeak.com/) Online dictionary
+5. Play the video in realtime with marked up subtitle
 
 ## Requirements
 1. Pytesseract
