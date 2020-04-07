@@ -7,6 +7,8 @@
 1. Pytesseract
 2. OpenCV
 3. NLTK
+4. GoogleTrans
+5. tkinter
 
 ## How to Run
 Run text_to_asl jupyter notebook after installing the dependencies.
