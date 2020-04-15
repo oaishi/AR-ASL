@@ -3,7 +3,7 @@
 
 # # NLTK Tokenizer
 
-# In[2]:
+# In[1]:
 
 
 # nltk postag list - https://medium.com/@gianpaul.r/tokenization-and-parts-of-speech-pos-tagging-in-pythons-nltk-library-2d30f70af13b
@@ -44,7 +44,7 @@
 # WRB wh-abverb where, when
 
 
-# In[3]:
+# In[2]:
 
 
 # https://www.nltk.org/book/ch05.html
@@ -89,7 +89,7 @@ def pos_tag_sanity(text):
 # print(pos_tag_sanity("And now is for something completely different. Eat were they"))    
 
 
-# In[4]:
+# In[3]:
 
 
 def listToStr(s):
@@ -101,7 +101,7 @@ def lettersToStr(s):
 
 # # Translate
 
-# In[5]:
+# In[4]:
 
 
 def gettranslation(text):
@@ -117,7 +117,7 @@ def detectlang(text):
 
 # # Testing
 
-# In[6]:
+# In[5]:
 
 
 # text = word_tokenize("man men")
@@ -141,7 +141,7 @@ else:
 
 # # AR Portion
 
-# In[7]:
+# In[6]:
 
 
 # https://www.learnopencv.com/read-write-and-display-a-video-using-opencv-cpp-python/
@@ -184,7 +184,7 @@ def showvideo2(c,caption):
     cv2.destroyAllWindows()
 
 
-# In[13]:
+# In[7]:
 
 
 WindowName="Main View"
@@ -279,9 +279,14 @@ def find_words(frame,loading_img=loading_img):
         elif os.path.isfile("data/" + url):
             print("playing existing video")
             showvideo("data/" + url, frame_1,listToStr(modified_list_words[:i])+" *"+ modified_list_words[i] + "* "+ listToStr(modified_list_words[(i+1):])) 
-        else:    
-            r = requests.get("https://handspeak.com/word/" + url)
-            if r.text[:15] == "<!DOCTYPE html>":
+        else:
+            flag=0
+            try:
+                r = requests.get("https://handspeak.com/word/" + url)
+            except:
+                print("server_unreachable")
+                flag=1
+            if r.text[:15] == "<!DOCTYPE html>" or flag==1:
                 nonASLwords.append(url)
                 letters = list(modified_list_words[i])
                 
@@ -331,7 +336,7 @@ def main():
 
 # # Gui
 
-# In[14]:
+# In[8]:
 
 
 # https://www.geeksforgeeks.org/python-face-recognition-using-gui/
